@@ -1,0 +1,44 @@
+{
+  "name": "configtxlator.js",
+  "version": "0.0.1",
+  "description": "Hyperledger Fabric's configtxlator implemented in js as a library to use with fabric-sdk-node",
+  "main": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc; cp src/bundle.d.ts dist; cp src/bundle.js dist",
+    "test": "mocha --reporter spec",
+    "update:pbjs": "project_path=$PWD; cd ./fabprotos; pbjs -t static-module -p google-protos -p protos $(find . -name \"*.proto\" -type f) -o $project_path/src/bundle.js",
+    "update:pbts": "project_path=$PWD; cd ./fabprotos; pbjs -t static-module -p google-protos -p protos $(find . -name \"*.proto\" -type f) | pbts -o $project_path/src/bundle.d.ts -",
+    "update:fabprotos": "node -e 'require(\"./updateProtos.js\").update()'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoLedgerDev/configtxlator.js.git"
+  },
+  "keywords": [
+    "hyperledger",
+    "fabric",
+    "configtxlator"
+  ],
+  "author": "Manoel Vieira",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/GoLedgerDev/configtxlator.js/issues"
+  },
+  "homepage": "https://github.com/GoLedgerDev/configtxlator.js#readme",
+  "devDependencies": {
+    "@types/lodash": "^4.14.133",
+    "@types/node": "^12.0.4",
+    "chai": "^4.2.0",
+    "fs": "0.0.1-security",
+    "fs-extra": "^8.0.1",
+    "mocha": "^6.1.4",
+    "protobufjs": "^6.8.8",
+    "typescript": "^3.5.1"
+  },
+  "dependencies": {
+    "camelcase-keys-deep": "^0.1.0",
+    "fabric-protos": "^2.0.0-snapshot.1",
+    "lodash": "^4.17.11"
+  }
+}
