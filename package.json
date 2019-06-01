@@ -1,6 +1,6 @@
 {
   "name": "configtxlator.js",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Hyperledger Fabric's configtxlator implemented in js as a library to use with fabric-sdk-node",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
